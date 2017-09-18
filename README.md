@@ -71,7 +71,11 @@ docker-compose up -d gdfor databook
 
 #### Criando seu propŕio serviço
 
-Caso você queira adicionar um outro serviço, copie e cole esse bloco abaixo e adicione dentro do nó de **servico** que esta no seu docker-compose.yml (o mesmo que foi renomeado) 
+Caso você queira adicionar mais serviços.
+
+* Copie o bloco abaixo.
+* Cole dentro do nó `servico` do seu arquivo docker-compose.yml
+* Renomeie a variável `$nome` para o nome do seu serviço desejado
 
 ```yml
     $nome:
