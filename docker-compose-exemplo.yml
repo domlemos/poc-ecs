@@ -1,0 +1,287 @@
+version: '2'
+
+networks:
+    application:
+        driver: bridge
+volumes:
+    mysql-data:
+        driver: local        
+
+services:
+    nginx-proxy:
+        image: jwilder/nginx-proxy
+        container_name: nginx-proxy
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+            - ./ssl:/etc/nginx/certs
+        networks:
+            - application
+    mysql:
+        image: mysql:5.6
+        container_name: mysql
+        ports:
+            - "3306:3306"
+        environment:
+            - MYSQL_ROOT_PASSWORD=autodoc
+        volumes:
+            - mysql-data:/var/lib/mysql
+        networks:
+            - application
+    gdfor:
+        image: autodoc/php5.6-apache
+        container_name: gdfor
+        hostname: 'gdfor.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/gdfor/public
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=gdfor.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../gdfor:/home/application/gdfor
+        networks:
+            - application
+    controletec:
+        image: autodoc/php5.6-apache
+        container_name: controletec
+        hostname: 'controletec.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/controletec
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=controletec.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../controletec:/home/application/controletec
+        networks:
+            - application
+    fvs2:
+        image: autodoc/php5.6-apache
+        container_name: fvs2
+        hostname: 'fvs2.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/fvs2
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=fvs2.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../fvs2:/home/application/fvs2
+        networks:
+            - application
+    checklist:
+        image: autodoc/php5.6-apache
+        container_name: checklist
+        hostname: 'checklist.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/checklist
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=checklist.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../checklist:/home/application/checklist
+        networks:
+            - application
+    cockpit:
+        image: autodoc/php5.6-apache
+        container_name: cockpit
+        hostname: 'cockpit.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/cockpit/public
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=cockpit.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../cockpit:/home/application/cockpit
+        networks:
+            - application
+    qro:
+        image: autodoc/php5.6-apache
+        container_name: qro
+        hostname: 'qro.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/qro
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=qro.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../qro:/home/application/qro
+        networks:
+            - application
+    entrega:
+        image: autodoc/php5.6-apache
+        container_name: entrega
+        hostname: 'entrega.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/entrega
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=entrega.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../entrega:/home/application/entrega
+        networks:
+            - application
+    sac:
+        image: autodoc/php5.6-apache
+        container_name: sac
+        hostname: 'sac.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/sac
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=sac.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../sac:/home/application/sac
+        networks:
+            - application
+    prazos-projetos:
+        image: autodoc/php5.6-apache
+        container_name: prazos-projetos
+        hostname: 'prazos-projetos.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/prazos-projetos
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=prazos-projetos.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../prazos-projetos:/home/application/prazos-projetos
+        networks:
+            - application
+    databook:
+        image: autodoc/php5.6-apache
+        container_name: databook
+        hostname: 'databook.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/databook/public
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=databook.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../databook:/home/application/databook
+        networks:
+            - application
+    iss:
+        image: autodoc/php5.6-apache
+        container_name: iss
+        hostname: 'iss.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/iss
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=iss.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../iss:/home/application/iss
+        networks:
+            - application
+    personalizacao:
+        image: autodoc/php5.6-apache
+        container_name: personalizacao
+        hostname: 'personalizacao.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/personalizacao
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=personalizacao.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../personalizacao:/home/application/personalizacao
+        networks:
+            - application
+    fvm:
+        image: autodoc/php5.6-apache
+        container_name: fvm
+        hostname: 'fvm.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/fvm
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=fvm.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../fvm:/home/application/fvm
+        networks:
+            - application
+    for205:
+        image: autodoc/php5.6-apache
+        container_name: for205
+        hostname: 'for205.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/for205
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=for205.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../for205:/home/application/for205
+        networks:
+            - application
+    for147:
+        image: autodoc/php5.6-apache
+        container_name: for147
+        hostname: 'for147.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/for147
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=for147.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../for147:/home/application/for147
+        networks:
+            - application
+    changelog:
+        image: autodoc/php5.6-apache
+        container_name: changelog
+        hostname: 'changelog.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/changelog
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=changelog.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../changelog:/home/application/changelog
+        networks:
+            - application
+    calibracao:
+        image: autodoc/php5.6-apache
+        container_name: calibracao
+        hostname: 'calibracao.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/calibracao
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=calibracao.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../calibracao:/home/application/calibracao
+        networks:
+            - application
