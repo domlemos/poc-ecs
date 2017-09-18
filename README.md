@@ -8,16 +8,16 @@ Projeto base para o ambiente de denvolvimento local utilizando docker.
 * [Criando seu próprio serviço](#criando-servicos)
 
 
-### Imagens docker
 <a name="imagens-docker"></a>
+### Imagens docker
 
 Repositórios|Descrição
 ---|---
 autodoc/php5.6-apache|php5.6 + apache2 + nodejs + bower + phpunit + composer + deployer-php
 autodoc/php7.1-apache|php7.1 + apache2 + nodejs + bower + phpunit + composer + deployer-php 
 
-#### Serviços já definidos
 <a name="servicos-definidos"></a>
+#### Serviços já definidos
 
 Lista de todos os serviços pré-definidos no arquivo de docker-compose-exemplo.tml
 
@@ -42,9 +42,8 @@ Lista de todos os serviços pré-definidos no arquivo de docker-compose-exemplo.
 * changelog 
 
 
-
-#### Configurando seu ambiente
 <a name="configurando-ambiente"></a>
+#### Configurando seu ambiente
 
 faça o git clone desse projeto.
 
@@ -71,9 +70,8 @@ Executando mais de um serviço  **(gdfor, databook)**.
 docker-compose up -d gdfor databook
 ```
 
-
-#### Criando seu propŕio serviço
 <a name="criando-servicos"></a>
+#### Criando seu propŕio serviço
 
 Caso você queira adicionar mais serviços.
 
