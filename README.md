@@ -91,22 +91,22 @@ Caso você queira adicionar mais serviços.
 
 * Copie o bloco abaixo.
 * Cole dentro do nó `servico` do seu arquivo docker-compose.yml
-* Renomeie a variável `$nome` para o nome do seu serviço desejado
+* Renomeie a variável `SEU_SERVICO` para o nome do seu serviço desejado
 
 ```yml
-    $nome:
+    SEU_SERVICO:
         image: autodoc/php5.6-apache
-        container_name: $nome
-        hostname: '$nome.app'
+        container_name: SEU_SERVICO
+        hostname: 'SEU_SERVICO.app'
         environment:
-            - APACHE_DOCUMENT_ROOT=/home/application/$nome
+            - APACHE_DOCUMENT_ROOT=/home/application/SEU_SERVICO
             - CERT_NAME=shared
-            - VIRTUAL_HOST=$nome.app
+            - VIRTUAL_HOST=SEU_SERVICO.app
         depends_on:
             - nginx-proxy
             - mysql
         volumes:
-            - ./../$nome:/home/application/$nome
+            - ./../SEU_SERVICO:/home/application/SEU_SERVICO
         networks:
             - application
 ```
