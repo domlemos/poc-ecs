@@ -70,6 +70,20 @@ Executando mais de um serviço  **(gdfor, databook)**.
 docker-compose up -d gdfor databook
 ```
 
+Acessando um serviço com usuário **root**.
+
+```shel
+docker-compose exec gdfor bash
+```
+
+Acessando um serviço com usuário **application**
+
+> Sempre que precisar utilizar algum comando que gere arquivos na aplicação (Ex: compser install, bower install), acesse o serviço com o usuário application
+
+```shell
+docker-compose exec --user=application gdfor bash
+```
+
 <a name="criando-servicos"></a>
 #### Criando seu propŕio serviço
 
