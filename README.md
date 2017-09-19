@@ -78,7 +78,7 @@ docker-compose exec gdfor bash
 
 Acessando um serviço com usuário **application**
 
-> Sempre que precisar utilizar algum comando que gere arquivos na aplicação (Ex: compser install, bower install), acesse o serviço com o usuário application
+> Sempre que precisar utilizar algum comando que gere arquivos na aplicação (Ex: composer install, bower install), acesse o serviço com este usuário
 
 ```shell
 docker-compose exec --user=application gdfor bash
