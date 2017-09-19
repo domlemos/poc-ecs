@@ -9,7 +9,7 @@ volumes:
 
 services:
     nginx-proxy:
-        image: jwilder/nginx-proxy
+        image: jwilder/nginx-proxy-alpine
         container_name: nginx-proxy
         ports:
             - "80:80"
@@ -31,7 +31,7 @@ services:
         networks:
             - application
     gdfor:
-        image: autodoc/php5.6-apache
+        image: autodoc/php7.1-apache
         container_name: gdfor
         hostname: 'gdfor.app'
         environment:
