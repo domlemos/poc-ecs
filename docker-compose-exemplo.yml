@@ -9,7 +9,7 @@ volumes:
 
 services:
     nginx-proxy:
-        image: jwilder/nginx-proxy-alpine
+        image: jwilder/nginx-proxy:alpine
         container_name: nginx-proxy
         ports:
             - "80:80"
