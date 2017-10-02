@@ -18,14 +18,15 @@ chown -R $(whoami):$(whoami) $A_BASE
 A_USER_HOME=/home/application
 
 
-function autodocker() {
+function dockerRun() {
     docker run -w $A_USER_HOME/tmp -it --rm --user=application -v $(pwd):$A_USER_HOME/tmp -v $A_COMPOSER:$A_USER_HOME/.composer -v $A_CONFIG:$A_USER_HOME/.config -v $A_CACHE:$A_USER_HOME/.cache -v $A_LOCAL:$A_USER_HOME/.local -v $A_SSH:$A_USER_HOME/.ssh autodoc/php7.1-apache "$@"
 }
 
-alias php="autodocker php $@"
-alias composer="autodocker composer $@"
-alias phpunit="autodocker phpunit $@"
-alias bower="autodocker bower $@"
-alias npm="autodocker npm $@"
-alias node="autodocker node $@"
-alias dep="autodocker dep $@"
+alias php="dockerRun php $@"
+alias composer="dockerRun composer $@"
+alias phpunit="dockerRun phpunit $@"
+alias bower="dockerRun bower $@"
+alias npm="dockerRun npm $@"
+alias node="dockerRun node $@"
+alias dep="dockerRun dep $@"
+alias autodocker="dockerRun /bin/bash"
