@@ -290,13 +290,13 @@ services:
         container_name: gestaoriscos
         hostname: 'gestaoriscos.app'
         environment:
-            - APACHE_DOCUMENT_ROOT=/home/application/gestaoriscos
+            - APACHE_DOCUMENT_ROOT=/home/application/gestaoriscos/public
             - CERT_NAME=shared
             - VIRTUAL_HOST=gestaoriscos.app
         depends_on:
             - nginx-proxy
             - mysql
         volumes:
-            - ./../gestaoriscos:/home/application/gestaoriscos
+            - ./../../gestaoriscos:/home/application/gestaoriscos
         networks:
             - application
