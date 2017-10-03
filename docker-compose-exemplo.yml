@@ -285,3 +285,18 @@ services:
             - ./../calibracao:/home/application/calibracao
         networks:
             - application
+    gestaoriscos:
+        image: autodoc/php5.6-apache
+        container_name: gestaoriscos
+        hostname: 'gestaoriscos.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/gestaoriscos
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=gestaoriscos.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../gestaoriscos:/home/application/gestaoriscos
+        networks:
+            - application
