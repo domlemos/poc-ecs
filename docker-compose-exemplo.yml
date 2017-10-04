@@ -286,7 +286,7 @@ services:
         networks:
             - application
     gestaoriscos:
-        image: autodoc/php5.6-apache
+        image: autodoc/php7.1-apache
         container_name: gestaoriscos
         hostname: 'gestaoriscos.app'
         environment:
