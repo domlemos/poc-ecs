@@ -305,7 +305,7 @@ services:
         container_name: prazosprojetos
         hostname: 'prazosprojetos.app'
         environment:
-            - APACHE_DOCUMENT_ROOT=/home/application/prazosprojetos/public
+            - APACHE_DOCUMENT_ROOT=/home/application/prazosprojetos
             - CERT_NAME=shared
             - VIRTUAL_HOST=prazosprojetos.app
         depends_on:
