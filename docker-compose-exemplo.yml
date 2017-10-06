@@ -300,3 +300,18 @@ services:
             - ./../../gestaoriscos:/home/application/gestaoriscos
         networks:
             - application
+    prazosprojetos:
+        image: autodoc/php5.6-apache
+        container_name: prazosprojetos
+        hostname: 'prazosprojetos.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/prazosprojetos/public
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=prazosprojetos.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../../prazosprojetos:/home/application/prazosprojetos
+        networks:
+            - application            
