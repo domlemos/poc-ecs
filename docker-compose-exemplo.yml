@@ -314,4 +314,19 @@ services:
         volumes:
             - ./../../prazosprojetos:/home/application/prazosprojetos
         networks:
-            - application            
+            - application
+    sustentabilidade-obras:
+        image: autodoc/php5.6-apache
+        container_name: sustentabilidade-obras
+        hostname: 'sustentabilidade-obras.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/sustentabilidade-obras
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=sustentabilidade-obras.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../../sustentabilidade-obras:/home/application/sustentabilidade-obras
+        networks:
+            - application
