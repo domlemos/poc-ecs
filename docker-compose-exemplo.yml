@@ -330,3 +330,18 @@ services:
             - ./../../sustentabilidade-obras:/home/application/sustentabilidade-obras
         networks:
             - application
+    fornecedores:
+        image: autodoc/php5.6-apache
+        container_name: fornecedores
+        hostname: 'fornecedores.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/fornecedores
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=fornecedores.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../../fornecedores:/home/application/fornecedores
+        networks:
+            - application
