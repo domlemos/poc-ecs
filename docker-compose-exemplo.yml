@@ -350,7 +350,7 @@ services:
         container_name: api-colaboradores
         hostname: 'api-colaboradores.app'
         environment:
-            - APACHE_DOCUMENT_ROOT=/home/application/api-colaboradores
+            - APACHE_DOCUMENT_ROOT=/home/application/api-colaboradores/public
             - CERT_NAME=shared
             - VIRTUAL_HOST=api-colaboradores.app
         depends_on:
