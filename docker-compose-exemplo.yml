@@ -345,3 +345,18 @@ services:
             - ./../../fornecedores:/home/application/fornecedores
         networks:
             - application
+    api-colaboradores:
+        image: autodoc/php7.1-apache
+        container_name: api-colaboradores
+        hostname: 'api-colaboradores.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/api-colaboradores
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=api-colaboradores.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../../api-colaboradores:/home/application/api-colaboradores
+        networks:
+            - application
