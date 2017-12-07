@@ -360,3 +360,33 @@ services:
             - ./../../api-colaboradores:/home/application/api-colaboradores
         networks:
             - application
+    financeiro:
+        image: autodoc/php5.6-apache
+        container_name: financeiro
+        hostname: 'financeiro.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/financeiro
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=financeiro.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../financeiro:/home/application/financeiro
+        networks:
+            - application
+    controle-projetos:
+        image: autodoc/php5.6-apache
+        container_name: controle-projetos
+        hostname: 'controle-projetos.app'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/controle-projetos
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=controle-projetos.app
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../controle-projetos:/home/application/controle-projetos
+        networks:
+            - application
