@@ -33,11 +33,11 @@ services:
     gdfor:
         image: autodoc/php7.1-apache
         container_name: gdfor
-        hostname: 'gdfor.app'
+        hostname: 'gdfor.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/gdfor/public
             - CERT_NAME=shared
-            - VIRTUAL_HOST=gdfor.app
+            - VIRTUAL_HOST=gdfor.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -48,11 +48,11 @@ services:
     controletec:
         image: autodoc/php5.6-apache
         container_name: controletec
-        hostname: 'controletec.app'
+        hostname: 'controletec.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/controletec
             - CERT_NAME=shared
-            - VIRTUAL_HOST=controletec.app
+            - VIRTUAL_HOST=controletec.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -63,11 +63,11 @@ services:
     fvs2:
         image: autodoc/php5.6-apache
         container_name: fvs2
-        hostname: 'fvs2.app'
+        hostname: 'fvs2.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/fvs2
             - CERT_NAME=shared
-            - VIRTUAL_HOST=fvs2.app
+            - VIRTUAL_HOST=fvs2.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -78,11 +78,11 @@ services:
     checklist:
         image: autodoc/php5.6-apache
         container_name: checklist
-        hostname: 'checklist.app'
+        hostname: 'checklist.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/checklist
             - CERT_NAME=shared
-            - VIRTUAL_HOST=checklist.app
+            - VIRTUAL_HOST=checklist.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -93,11 +93,11 @@ services:
     cockpit:
         image: autodoc/php5.6-apache
         container_name: cockpit
-        hostname: 'cockpit.app'
+        hostname: 'cockpit.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/cockpit/public
             - CERT_NAME=shared
-            - VIRTUAL_HOST=cockpit.app
+            - VIRTUAL_HOST=cockpit.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -108,11 +108,11 @@ services:
     qro:
         image: autodoc/php5.6-apache
         container_name: qro
-        hostname: 'qro.app'
+        hostname: 'qro.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/qro
             - CERT_NAME=shared
-            - VIRTUAL_HOST=qro.app
+            - VIRTUAL_HOST=qro.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -123,11 +123,11 @@ services:
     entrega:
         image: autodoc/php5.6-apache
         container_name: entrega
-        hostname: 'entrega.app'
+        hostname: 'entrega.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/entrega
             - CERT_NAME=shared
-            - VIRTUAL_HOST=entrega.app
+            - VIRTUAL_HOST=entrega.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -138,11 +138,11 @@ services:
     sac:
         image: autodoc/php5.6-apache
         container_name: sac
-        hostname: 'sac.app'
+        hostname: 'sac.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/sac
             - CERT_NAME=shared
-            - VIRTUAL_HOST=sac.app
+            - VIRTUAL_HOST=sac.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -153,11 +153,11 @@ services:
     prazos-projetos:
         image: autodoc/php5.6-apache
         container_name: prazos-projetos
-        hostname: 'prazos-projetos.app'
+        hostname: 'prazos-projetos.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/prazos-projetos
             - CERT_NAME=shared
-            - VIRTUAL_HOST=prazos-projetos.app
+            - VIRTUAL_HOST=prazos-projetos.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -168,11 +168,11 @@ services:
     databook:
         image: autodoc/php5.6-apache
         container_name: databook
-        hostname: 'databook.app'
+        hostname: 'databook.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/databook/public
             - CERT_NAME=shared
-            - VIRTUAL_HOST=databook.app
+            - VIRTUAL_HOST=databook.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -183,11 +183,11 @@ services:
     iss:
         image: autodoc/php5.6-apache
         container_name: iss
-        hostname: 'iss.app'
+        hostname: 'iss.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/iss
             - CERT_NAME=shared
-            - VIRTUAL_HOST=iss.app
+            - VIRTUAL_HOST=iss.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -198,11 +198,11 @@ services:
     personalizacao:
         image: autodoc/php5.6-apache
         container_name: personalizacao
-        hostname: 'personalizacao.app'
+        hostname: 'personalizacao.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/personalizacao
             - CERT_NAME=shared
-            - VIRTUAL_HOST=personalizacao.app
+            - VIRTUAL_HOST=personalizacao.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -213,11 +213,11 @@ services:
     fvm:
         image: autodoc/php5.6-apache
         container_name: fvm
-        hostname: 'fvm.app'
+        hostname: 'fvm.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/fvm
             - CERT_NAME=shared
-            - VIRTUAL_HOST=fvm.app
+            - VIRTUAL_HOST=fvm.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -228,11 +228,11 @@ services:
     for205:
         image: autodoc/php5.6-apache
         container_name: for205
-        hostname: 'for205.app'
+        hostname: 'for205.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/for205
             - CERT_NAME=shared
-            - VIRTUAL_HOST=for205.app
+            - VIRTUAL_HOST=for205.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -243,11 +243,11 @@ services:
     for147:
         image: autodoc/php5.6-apache
         container_name: for147
-        hostname: 'for147.app'
+        hostname: 'for147.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/for147
             - CERT_NAME=shared
-            - VIRTUAL_HOST=for147.app
+            - VIRTUAL_HOST=for147.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -258,11 +258,11 @@ services:
     changelog:
         image: autodoc/php5.6-apache
         container_name: changelog
-        hostname: 'changelog.app'
+        hostname: 'changelog.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/changelog
             - CERT_NAME=shared
-            - VIRTUAL_HOST=changelog.app
+            - VIRTUAL_HOST=changelog.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -273,11 +273,11 @@ services:
     calibracao:
         image: autodoc/php5.6-apache
         container_name: calibracao
-        hostname: 'calibracao.app'
+        hostname: 'calibracao.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/calibracao
             - CERT_NAME=shared
-            - VIRTUAL_HOST=calibracao.app
+            - VIRTUAL_HOST=calibracao.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -288,11 +288,11 @@ services:
     gestaoriscos:
         image: autodoc/php7.1-apache
         container_name: gestaoriscos
-        hostname: 'gestaoriscos.app'
+        hostname: 'gestaoriscos.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/gestaoriscos/public
             - CERT_NAME=shared
-            - VIRTUAL_HOST=gestaoriscos.app
+            - VIRTUAL_HOST=gestaoriscos.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -303,11 +303,11 @@ services:
     prazosprojetos:
         image: autodoc/php5.6-apache
         container_name: prazosprojetos
-        hostname: 'prazosprojetos.app'
+        hostname: 'prazosprojetos.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/prazosprojetos
             - CERT_NAME=shared
-            - VIRTUAL_HOST=prazosprojetos.app
+            - VIRTUAL_HOST=prazosprojetos.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -318,11 +318,11 @@ services:
     sustentabilidade-obras:
         image: autodoc/php5.6-apache
         container_name: sustentabilidade-obras
-        hostname: 'sustentabilidade-obras.app'
+        hostname: 'sustentabilidade-obras.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/sustentabilidade-obras
             - CERT_NAME=shared
-            - VIRTUAL_HOST=sustentabilidade-obras.app
+            - VIRTUAL_HOST=sustentabilidade-obras.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -333,11 +333,11 @@ services:
     fornecedores:
         image: autodoc/php5.6-apache
         container_name: fornecedores
-        hostname: 'fornecedores.app'
+        hostname: 'fornecedores.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/fornecedores
             - CERT_NAME=shared
-            - VIRTUAL_HOST=fornecedores.app
+            - VIRTUAL_HOST=fornecedores.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -348,11 +348,11 @@ services:
     api-colaboradores:
         image: autodoc/php7.1-apache
         container_name: api-colaboradores
-        hostname: 'api-colaboradores.app'
+        hostname: 'api-colaboradores.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/api-colaboradores/public
             - CERT_NAME=shared
-            - VIRTUAL_HOST=api-colaboradores.app
+            - VIRTUAL_HOST=api-colaboradores.local
         depends_on:
             - nginx-proxy
             - mysql
