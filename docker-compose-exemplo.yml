@@ -363,11 +363,11 @@ services:
     financeiro:
         image: autodoc/php5.6-apache
         container_name: financeiro
-        hostname: 'financeiro.app'
+        hostname: 'financeiro.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/financeiro
             - CERT_NAME=shared
-            - VIRTUAL_HOST=financeiro.app
+            - VIRTUAL_HOST=financeiro.local
         depends_on:
             - nginx-proxy
             - mysql
@@ -378,11 +378,11 @@ services:
     controle-projetos:
         image: autodoc/php5.6-apache
         container_name: controle-projetos
-        hostname: 'controle-projetos.app'
+        hostname: 'controle-projetos.local'
         environment:
             - APACHE_DOCUMENT_ROOT=/home/application/controle-projetos
             - CERT_NAME=shared
-            - VIRTUAL_HOST=controle-projetos.app
+            - VIRTUAL_HOST=controle-projetos.local
         depends_on:
             - nginx-proxy
             - mysql
