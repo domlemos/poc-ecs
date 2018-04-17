@@ -17,6 +17,7 @@ services:
         volumes:
             - /var/run/docker.sock:/tmp/docker.sock:ro
             - ./ssl:/etc/nginx/certs
+            - ./proxy.conf:/etc/nginx/proxy.conf
         networks:
             - application
     mysql:
