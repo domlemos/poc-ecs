@@ -391,3 +391,18 @@ services:
             - ./../controle-projetos:/home/application/controle-projetos
         networks:
             - application
+    painel-cte:
+        image: autodoc/php5.6-apache
+        container_name: painel-cte
+        hostname: 'painel-cte.local'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/painel-cte/public
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=painel-cte.local
+        depends_on:
+            - nginx-proxy
+            - mysql
+        volumes:
+            - ./../painel-cte:/home/application/painel-cte
+        networks:
+            - application
