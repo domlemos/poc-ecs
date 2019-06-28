@@ -5,7 +5,9 @@ networks:
         driver: bridge
 volumes:
     mysql-data:
-        driver: local        
+        driver: local
+    redis-data:
+        driver: local
 
 services:
     nginx-proxy:
@@ -31,6 +33,15 @@ services:
             - mysql-data:/var/lib/mysql
         networks:
             - application
+    redis:
+        image: redis:5
+        container_name: redis
+        ports:
+            - "6379:6379"
+        volumes:
+            - redis-data:/data
+        networks:
+            - application            
     gdfor:
         image: autodoc/php7.1-apache
         container_name: gdfor
