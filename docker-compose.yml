@@ -1,0 +1,38 @@
+version: '2'
+
+networks:
+    application:
+        driver: bridge
+volumes:
+    mysql-data:
+        driver: local
+    redis-data:
+        driver: local
+services:
+    nginx-proxy:
+        image: jwilder/nginx-proxy:alpine
+        container_name: nginx-proxy
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+            - ./ssl:/etc/nginx/certs
+            - ./proxy.conf:/etc/nginx/proxy.conf
+        networks:
+            - application  
+    erp:
+        image: autodoc/php7.1-apache
+        container_name: erp
+        hostname: 'erp.teste'
+        environment:
+            - APACHE_DOCUMENT_ROOT=/home/application/erp/public
+            - CERT_NAME=shared
+            - VIRTUAL_HOST=erp.teste
+        depends_on:
+            - nginx-proxy            
+        volumes:
+            - ./:/home/application/erp
+        networks:
+            - application
+    
